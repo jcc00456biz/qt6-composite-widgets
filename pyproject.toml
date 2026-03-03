@@ -1,0 +1,32 @@
+[project]
+name = "qt6-composite-widgets"
+version = "0.1.0"
+description = "Qt6 composite widgets collection"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [
+  { name = "taka-labs." }
+]
+
+dependencies = [
+  "PySide6>=6.5"
+]
+
+# テストや開発時にだけ必要なライブラリを定義
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-qt"
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+# pytestを実行する際のデフォルト設定
+[tool.pytest.ini_options]
+minversion = "6.0"
+testpaths = ["tests"]
+# PySide6を使用することをpytest-qtに明示
+qt_api = "pyside6"
